@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -30,13 +29,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  //int _counter = 0;
+  var _num = 0 ;
 
-  void _incrementCounter() {
+  /*void _incrementCounter() {
     setState(() {
       _counter++;
     });
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       //mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 40.0),
+                          padding: EdgeInsets.only(top: 50.0),
                           child: Icon(
                             Icons.lock,
                             size: 80.0,
@@ -68,61 +68,126 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 50.0),
+                          padding: EdgeInsets.only(bottom: 50.0),
                           child: Text(
                             'กรุณากรอกรหัสผ่าน',
                             style:
                                 TextStyle(fontSize: 40.0, color: Colors.purple),
                           ),
-                        )
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 20.0 ,
+                              height: 20.0,
+                              margin: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              width: 20.0 ,
+                              height: 20.0,
+                              margin: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              width: 20.0 ,
+                              height: 20.0,
+                              margin: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              width: 20.0 ,
+                              height: 20.0,
+                              margin: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              width: 20.0 ,
+                              height: 20.0,
+                              margin: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              width: 20.0 ,
+                              height: 20.0,
+                              margin: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.purple.shade100,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ],
+                        ),
+
                       ],
-                    )
+                    ),
+
                   ],
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildButton(num: 1),
-                  buildButton(num: 2),
-                  buildButton(num: 3),
+                  buildButton(1),
+                  buildButton(2),
+                  buildButton(3),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildButton(num: 4),
-                  buildButton(num: 5),
-                  buildButton(num: 6),
+                  buildButton(4),
+                  buildButton(5),
+                  buildButton(6),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildButton(num: 7),
-                  buildButton(num: 8),
-                  buildButton(num: 9),
+                  buildButton(7),
+                  buildButton(8),
+                  buildButton(9),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                      ),
+                    ),
+                  buildButton(0),
                   Padding(
-                    padding: const EdgeInsets.only(left: 52.0),
-                    child: buildButton(num: 0),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: Icon(Icons.backspace),
-                  ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: InkWell(
+                      onTap: () {} ,
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                        child: Icon(Icons.backspace),
+                      ),
+                    ),
+                  )
                 ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: TextButton(
-                  child: Text('ลืมรหัสผ่าน'),
-                  onPressed: () {},
-                ),
               ),
             ],
           ),
@@ -133,16 +198,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget buildButton({int? num}) {
+  Widget buildButton(int? num) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 75.0,
-        height: 75.0,
+        width: 60.0,
+        height: 60.0,
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.purple, width: 4.0),
+          border: Border.all(color: Colors.purple, width: 2.0),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.3), // สีเงา
@@ -160,7 +225,11 @@ class _MyHomePageState extends State<MyHomePage> {
               )),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              _num++ ;
+            });
+          },
         ),
       ),
     );
